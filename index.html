@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pairwheel - rsslldnphy.com</title>
+
+    <link rel="canonical" href="http://rsslldnphy.com/pairwheel">
+    <link rel="stylesheet" href="/css/quicksand.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootswatch.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <a class="navbar-brand-link" href="/">PAIRWHEEL</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <div id="main-content" class"container-fluid">
+
+    </div>
+
+    <footer>
+      &copy; Russell Dunphy 2016
+    </footer>
+
+    <script src="pairwheel.js"></script>
+    <script>
+      var node = document.getElementById('main-content');
+      var storedState = localStorage.getItem('model');
+      var startingState = storedState ? JSON.parse(storedState) : null;
+      var elmApp = Elm.Pairwheel.embed(node, startingState);
+        elmApp.ports.setStorage.subscribe(function (state) {
+          localStorage.setItem('model', JSON.stringify(state))
+        });
+    </script>
+  </body>
+
+</html>
